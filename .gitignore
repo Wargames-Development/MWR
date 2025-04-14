@@ -1,0 +1,35 @@
+# Eclipse
+/eclipse
+/bin
+/*.launch
+/.settings
+/.metadata
+/.classpath
+/.project
+
+# IntelliJ
+/out
+/*.ipr
+/*.iws
+/*.iml
+/.idea
+
+# Gradle
+/build
+/.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+# VS Code
+/.vscode
+
+# Runtime
+/run
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# OS Files
+.DS_Store
+Thumbs.db

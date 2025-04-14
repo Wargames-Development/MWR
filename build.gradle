@@ -1,0 +1,103 @@
+// build.gradle for MWR (Wargames: Modern Warfare Reborn)
+
+buildscript {
+    repositories {
+        maven { url = 'https://maven.minecraftforge.net/' }
+        mavenCentral()
+    }
+    dependencies {
+        classpath('com.anatawa12.forge:ForgeGradle:1.2-1.0.+') { changing = true }
+    }
+}
+
+apply plugin: 'forge'
+
+group = "com.wargames"
+archivesBaseName = modBaseName
+version = "${modMainVersion}.${modSubVersion}.${modBuildNumber}"
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = targetCompatibility = '1.8'
+
+def mcVersion = "1.7.10"
+
+def modInfo = [
+    modid: modBaseName,
+    name: modDisplayName,
+    version: version,
+    mcversion: mcVersion
+]
+
+minecraft {
+    version = "${mcVersion}-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
+}
+
+repositories {
+    maven {
+        name = 'ModMaven'
+        url = 'https://modmaven.dev'
+    }
+    maven {
+        name = "gt"
+        url = "https://gregtech.mechaenetia.com/"
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'lib', include: ['*.jar'])
+
+    implementation 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev'
+    compileOnly 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:src'
+
+    implementation 'codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev'
+    compileOnly 'codechicken:CodeChickenLib:1.7.10-1.1.3.140:src'
+
+    implementation 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:dev'
+    compileOnly 'codechicken:NotEnoughItems:1.7.10-1.0.3.74:src'
+
+    implementation "li.cil.oc:OpenComputers:MC1.7.10-1.5.+:api"
+    compileOnly "inventorytweaks:InventoryTweaks:1.59-dev:deobf"
+}
+
+def versionPropsFile = file("gradle.properties")
+
+task incrementBuildVersion {
+    doLast {
+        def props = new Properties()
+        props.load(new FileInputStream(versionPropsFile))
+        def currentBuild = props['modBuildNumber'].toInteger() + 1
+        props['modBuildNumber'] = currentBuild.toString()
+        props.store(new FileOutputStream(versionPropsFile), null)
+        println "Auto-incremented build number to ${currentBuild}"
+    }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        filesMatching('mcmod.info') {
+            expand([
+                version: project.version,
+                mcversion: project.minecraft.version,
+                modid: modBaseName,
+                name: modDisplayName
+            ])
+        }
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+jar {
+    baseName = archivesBaseName
+    version = project.version
+    destinationDir = file("build/libs")
+}
+
+build.dependsOn incrementBuildVersion
