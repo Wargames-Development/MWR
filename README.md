@@ -203,13 +203,11 @@ We wouldn't be where we are now without the support from you all!
 - [Ocean](https://github.com/Oceanseaj) - Designer
 - [Viking](https://github.com/Wargames-Development) - Advisor
 
-<!--
+
 ### Our Contributors
 
 Update with the links to the correct repo's
 
-[![Contributors](https://contrib.rocks/image?repo=Wargames-Development/<reponame>)](https://github.com/Wargames-Development/<reponame>/graphs/contributors)
-
--->
+[![Contributors](https://contrib.rocks/image?repo=Wargames-Development/MWR)](https://github.com/Wargames-Development/MWR/graphs/contributors)
 
 ---
