@@ -6,11 +6,9 @@
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "https://discord.wargames.uk",
-    "updateUrl": "",
-    "authorList": ["Glac", "Wargames Development Group""],
+    "authorList": ["Glac", "Wargames Development Group"],
     "credits": "Credits to the MWC team, and VMW team for the assets and textures.",
     "logoFile": "",
-    "screenshots": [],
     "dependencies": []
   }
 ]
