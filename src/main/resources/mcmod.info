@@ -9,6 +9,6 @@
     "authorList": ["Glac", "Wargames Development Group"],
     "credits": "Credits to the MWC team, and VMW team for the assets and textures.",
     "logoFile": "",
-    "dependencies": []
+    "dependencies": ["required-after:hbm"]
   }
 ]

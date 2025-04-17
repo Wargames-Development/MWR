@@ -34,6 +34,9 @@ minecraft {
 }
 
 repositories {
+    flatDir {
+        dirs 'lib'
+    }
     maven {
         name = 'ModMaven'
         url = 'https://modmaven.dev'
@@ -46,6 +49,8 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'lib', include: ['*.jar'])
+
+    implementation name: 'HBM-NTM-1.0.27_X5299'
 
     implementation 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:dev'
     compileOnly 'codechicken:CodeChickenCore:1.7.10-1.0.4.29:src'
