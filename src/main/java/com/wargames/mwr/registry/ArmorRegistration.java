@@ -18,21 +18,21 @@ public class ArmorRegistration {
 
         OBJArmorRenderer.registerArmorModel(
                 ItemUSMCArmor.usmcChest,
-                new ResourceLocation("mwr", "models/armor/deduped_blendered_marine.obj"),
+                new ResourceLocation("mwr", "models/armor/marine3.obj"),
                 new ResourceLocation("mwr", "textures/armor/usmc.png"),
                 new MarineOBJGroups()
         );
 
         OBJArmorRenderer.registerArmorModel(
                 ItemUSMCArmor.usmcHelmet,
-                new ResourceLocation("mwr", "models/armor/deduped_blendered_marine.obj"),
+                new ResourceLocation("mwr", "models/armor/marine3.obj"),
                 new ResourceLocation("mwr", "textures/armor/usmc.png"),
                 new MarineOBJGroups()
         );
 
         OBJArmorRenderer.registerArmorModel(
                 ItemUSMCArmor.usmcBoots,
-                new ResourceLocation("mwr", "models/armor/deduped_blendered_marine.obj"),
+                new ResourceLocation("mwr", "models/armor/marine3.obj"),
                 new ResourceLocation("mwr", "textures/armor/usmc.png"),
                 new MarineOBJGroups()
         );

@@ -23,12 +23,12 @@ public class OBJArmorRenderer {
     private static final float HELMET_Y_OFFSET = -1.5F;
     private static final float JACKET_Y_OFFSET = -1.5F;
     private static final float LEFT_ARM_Y_OFFSET = -1.38F;
-    private static final float LEFT_ARM_X_OFFSET = 0.3F;
-    private static final float RIGHT_ARM_Y_OFFSET = -1.38F;
-    private static final float RIGHT_ARM_X_OFFSET = 0.3F;
+    private static final float LEFT_ARM_X_OFFSET = 0.31F;
+    private static final float RIGHT_ARM_Y_OFFSET = -1.25F; // need to raise go +
+    private static final float RIGHT_ARM_X_OFFSET = 0.02F; // need to bring into body go -
     private static final float LEFT_LEG_Y_OFFSET = -0.7F;
-    private static final float RIGHT_LEG_Y_OFFSET = 0.0F;
-    private static final float LEFT_LEG_X_OFFSET = 0.0F;
+    private static final float RIGHT_LEG_Y_OFFSET = 0.05F;
+    private static final float LEFT_LEG_X_OFFSET = 0.12F;
     private static final float RIGHT_LEG_X_OFFSET = 0.0F;
     private static final float LEG_Z_OFFSET = 0.0F;
 
@@ -60,7 +60,7 @@ public class OBJArmorRenderer {
 
             switch (slot) {
                 case 3: // Helmet
-                    modelBiped.bipedHead.postRender(0.0625F);
+                    modelBiped.bipedHead.postRender(0.0625F); //pivot point
                     GL11.glPushMatrix();
                     GL11.glScalef(1F, 1F, 1F);
                     GL11.glRotatef(180F, 1F, 0F, 0F);
