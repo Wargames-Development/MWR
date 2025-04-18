@@ -1,0 +1,7 @@
+# Creative Tab
+itemGroup.mwrArmor=MWR Armor
+
+# Marine Armor Set
+item.marineArmor0.name=Marine Helmet
+item.marineArmor1.name=Marine Chestplate
+item.marineArmor3.name=Marine Boots

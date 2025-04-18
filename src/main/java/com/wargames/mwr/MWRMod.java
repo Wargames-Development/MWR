@@ -2,7 +2,7 @@ package com.wargames.mwr;
 
 import com.wargames.mwr.command.MWRCommandHandler;
 import com.wargames.mwr.configuration.ConfigHandler;
-import com.wargames.mwr.registry.ArmorRegistration;
+import com.wargames.mwr.init.MWRItems;
 import com.wargames.mwr.test.TestSuite;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -25,15 +25,12 @@ public class MWRMod {
 
     public static ConfigHandler CONFIGS;
 
-    @SidedProxy(clientSide = "com.wargames.mwr.ClientProxy", serverSide = "com.wargames.mwr.CommonProxy")
-    public static CommonProxy proxy;
-
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         File configDir = new File(event.getModConfigurationDirectory(), "MWR");
         CONFIGS = new ConfigHandler(configDir);
 
-        ArmorRegistration.register(); // Register all armor items
+        MWRItems.init();
 
         if (CONFIGS.getDebugConfig().ENABLE_LOAD_LOGS) LOGGER.info("[MWR] Pre-initialization started.");
         if (CONFIGS.getDebugConfig().ENABLE_TESTS) {
@@ -49,9 +46,6 @@ public class MWRMod {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         if (CONFIGS.getDebugConfig().ENABLE_LOAD_LOGS) LOGGER.info("[MWR] Initialization started.");
-
-        // Register client-side render hooks
-        proxy.registerRenderers(event);
 
         if (CONFIGS.getDebugConfig().ENABLE_TESTS) {
             try {
